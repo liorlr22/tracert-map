@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Modern HTML Page with an Iframe</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .iframe-container {
+        display: flex;
+        justify-content: center;
+        margin: 50px auto;
+        width: 500px;
+        height: 500px;
+        border: none;
+      }
+      .form-container {
+        display: flex;
+        justify-content: center;
+        margin: 50px auto;
+        width: 500px;
+      }
+      .form-container input[type="text"] {
+        width: 70%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+      .form-container input[type="submit"] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to My Page</h1>
+    <div class="form-container">
+      <form action="{{ url_for('trace') }}" method="post">
+        <input type="text" name="website" placeholder="Enter website URL">
+        <input type="submit" value="Trace">
+      </form>
+    </div>
+    <div class="iframe-container">
+      <iframe
+        src="{{ url_for('iframe') }}"
+        title="External Content"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </body>
+</html>
